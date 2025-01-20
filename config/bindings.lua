@@ -57,6 +57,10 @@ local keys = {
    { key = 'c',          mods = 'CTRL|SHIFT',  action = act.CopyTo('Clipboard') },
    { key = 'v',          mods = 'CTRL|SHIFT',  action = act.PasteFrom('Clipboard') },
 
+   -- Word navigation
+   { key = 'LeftArrow',  mods = 'ALT', action = act.SendString('\x1bb') },
+   { key = 'RightArrow', mods = 'ALT', action = act.SendString('\x1bf') },
+
    -- tabs --
    -- tabs: spawn+close
    { key = 't',          mods = mod.SUPER,     action = act.SpawnTab('DefaultDomain') },
@@ -158,13 +162,13 @@ local keys = {
    -- panes --
    -- panes: split panes
    {
-      key = [[\]],
+      key = 'd',
       mods = mod.SUPER,
       action = act.SplitVertical({ domain = 'CurrentPaneDomain' }),
    },
    {
-      key = [[\]],
-      mods = mod.SUPER_REV,
+      key = 'D',
+      mods = mod.SUPER,
       action = act.SplitHorizontal({ domain = 'CurrentPaneDomain' }),
    },
 
@@ -173,10 +177,10 @@ local keys = {
    { key = 'w',     mods = mod.SUPER,     action = act.CloseCurrentPane({ confirm = false }) },
 
    -- panes: navigation
-   { key = 'k',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Up') },
-   { key = 'j',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Down') },
-   { key = 'h',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Left') },
-   { key = 'l',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Right') },
+   { key = 'LeftArrow',  mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Left') },
+   { key = 'RightArrow', mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Right') },
+   { key = 'UpArrow',    mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Up') },
+   { key = 'DownArrow',  mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Down') },
    {
       key = 'p',
       mods = mod.SUPER_REV,
@@ -184,8 +188,8 @@ local keys = {
    },
 
    -- panes: scroll pane
-   { key = 'u',        mods = mod.SUPER, action = act.ScrollByLine(-5) },
-   { key = 'd',        mods = mod.SUPER, action = act.ScrollByLine(5) },
+   { key = 'd',        mods = 'CTRL', action = act.ScrollByLine(5) },
+   { key = 'f',        mods = 'CTRL', action = act.ScrollByLine(-5) },
    { key = 'PageUp',   mods = 'NONE',    action = act.ScrollByPage(-0.75) },
    { key = 'PageDown', mods = 'NONE',    action = act.ScrollByPage(0.75) },
 
