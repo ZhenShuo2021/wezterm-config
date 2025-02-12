@@ -188,8 +188,9 @@ local keys = {
    },
 
    -- panes: scroll pane
-   { key = 'd',        mods = 'CTRL', action = act.ScrollByLine(5) },
-   { key = 'f',        mods = 'CTRL', action = act.ScrollByLine(-5) },
+   -- TODO: This method not work with the current config: https://github.com/wezterm/wezterm/issues/1417
+   -- { key = 'd',        mods = 'CTRL', action = act.ScrollByLine(5) },
+   -- { key = 'f',        mods = 'CTRL', action = act.ScrollByLine(-5) },
    { key = 'PageUp',   mods = 'NONE',    action = act.ScrollByPage(-0.75) },
    { key = 'PageDown', mods = 'NONE',    action = act.ScrollByPage(0.75) },
 
